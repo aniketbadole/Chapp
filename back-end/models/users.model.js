@@ -1,9 +1,14 @@
 const connection = require("../db/connection");
 
-exports.fetchUsers = () => {
+exports.fetchUsers = logged_in => {
   return connection
     .select("*")
     .from("users")
+    .modify(query => {
+      if (logged_in) {
+        query.where({ logged_in });
+      }
+    })
     .then(users => {
       return { users };
     });

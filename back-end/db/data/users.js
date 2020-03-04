@@ -7,5 +7,10 @@ module.exports = [
   {
     username: "Kirsty",
     avatar_url: "https://avatarfiles.alphacoders.com/161/161216.png"
+  },
+  {
+    username: "Sarah",
+    avatar_url: "https://avatarfiles.alphacoders.com/161/161216.png",
+    logged_in: false
   }
 ];

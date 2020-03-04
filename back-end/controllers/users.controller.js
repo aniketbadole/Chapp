@@ -1,7 +1,8 @@
 const { fetchUsers, fetchUserById } = require("../models/users.model");
 
 exports.getUsers = (req, res, next) => {
-  fetchUsers()
+  const { logged_in } = req.query;
+  fetchUsers(logged_in)
     .then(users => {
       res.status(200).send(users);
     })
@@ -10,9 +11,7 @@ exports.getUsers = (req, res, next) => {
 
 exports.getUserById = (req, res, next) => {
   const { user_id } = req.params;
-  fetchUserById(user_id)
-    .then(user => {
-      res.status(200).send(user);
-    })
-    .catch(console.log);
+  fetchUserById(user_id).then(user => {
+    res.status(200).send(user);
+  });
 };
